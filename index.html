@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Little Universe ✨</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+</head>
+<body>
+
+  <!-- ✦ PARTICLE CANVAS -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ✦ CURSOR TRAIL -->
+  <div id="cursorTrail"></div>
+
+  <!-- ✦ MUSIC WIDGET -->
+  <div class="music-widget" id="musicWidget">
+    <div class="vinyl" id="vinyl">
+      <div class="vinyl-center"></div>
+    </div>
+    <div class="music-info">
+      <span class="music-title">Our Song ♪</span>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶</button>
+  </div>
+  <audio id="bgMusic" loop>
+    <!-- Replace src with your actual music file path e.g. assets/music/our-song.mp3 -->
+    <source src="ed_shiran_-_photograph_(mp3.pm).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ============================================================
+       SECTION 1 — LANDING PAGE
+  ============================================================ -->
+  <section id="landing" class="section landing-section">
+    <div class="landing-bg"></div>
+    <div class="hearts-container" id="heartsContainer"></div>
+    <div class="landing-content">
+      <div class="six-months-badge">6 Months ✨</div>
+      <h1 class="landing-title">Happy <span class="highlight">6 Months</span> ❤️</h1>
+      <p class="landing-subtitle" id="typedText"></p>
+      <p class="landing-desc">Every moment with you became my favorite memory.</p>
+      <button class="start-btn" onclick="scrollToSection('timeline')">
+        <span>Begin Our Story</span>
+        <div class="btn-glow"></div>
+      </button>
+      <div class="music-hint">🎵 Click ▶ to play our song</div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2 — TIMELINE
+  ============================================================ -->
+  <section id="timeline" class="section timeline-section">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Our Journey</span>
+      <h2 class="section-title">6 Months of <em>Magic</em></h2>
+    </div>
+    <div class="timeline-container">
+
+      <div class="timeline-item left" data-aos="fade-right">
+        <div class="timeline-dot">💘</div>
+        <div class="timeline-card">
+          <span class="timeline-date">Month 1</span>
+          <h3>Where It All Began</h3>
+          <p>The moment I realized you were something special. Nervous smiles, butterflies, and the best "hello" of my life.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right" data-aos="fade-left">
+        <div class="timeline-dot">☕</div>
+        <div class="timeline-card">
+          <span class="timeline-date">Month 2</span>
+          <h3>Every Date Felt Like a Dream</h3>
+          <p>Late night talks, coffee that got cold because we never stopped talking, and realizing I wanted more of this.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left" data-aos="fade-right">
+        <div class="timeline-dot">🌙</div>
+        <div class="timeline-card">
+          <span class="timeline-date">Month 3</span>
+          <h3>Halfway & Falling Deeper</h3>
+          <p>We stopped counting the days and started collecting moments. That's when I knew this was real.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right" data-aos="fade-left">
+        <div class="timeline-dot">🌸</div>
+        <div class="timeline-card">
+          <span class="timeline-date">Month 4</span>
+          <h3>The Comfortable Kind of Love</h3>
+          <p>No more "trying to impress" — just us, being perfectly weird together. The most beautiful kind of comfort.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left" data-aos="fade-right">
+        <div class="timeline-dot">🌟</div>
+        <div class="timeline-card">
+          <span class="timeline-date">Month 5</span>
+          <h3>Adventures & Inside Jokes</h3>
+          <p>A collection of memories only we understand. Our own little language, our own little world.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right" data-aos="fade-left">
+        <div class="timeline-dot">❤️</div>
+        <div class="timeline-card highlight-card">
+          <span class="timeline-date">Month 6 ✨</span>
+          <h3>Right Here, Right Now</h3>
+          <p>Six months of choosing each other, every single day. And I'd choose you a thousand times over.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — PHOTO MEMORY WALL
+  ============================================================ -->
+  <section id="gallery" class="section gallery-section">
+  
+  <div class="section-header" data-aos="fade-up">
+    <span class="section-tag">Our Memories</span>
+    <h2 class="section-title">Moments We <em>Collected</em></h2>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- PHOTO 1 -->
+    <div class="polaroid large" data-aos="zoom-in" onclick="openModal(this)">
+      <img src="me.jpeg" alt="Memory 1" class="polaroid-img">
+      <p class="polaroid-caption">
+        "You + me = zero peace but maximum happiness"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="polaroid" data-aos="zoom-in" data-aos-delay="100" onclick="openModal(this)">
+      <img src="2jpeg.jpeg" alt="Memory 2" class="polaroid-img">
+      <p class="polaroid-caption">
+        "This photo smells like laughter"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="polaroid" data-aos="zoom-in" data-aos-delay="150" onclick="openModal(this)">
+      <img src="3peg.jpeg" alt="Memory 3" class="polaroid-img">
+      <p class="polaroid-caption">
+        "Still wondering how you tolerate me"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 4 -->
+    <div class="polaroid wide" data-aos="zoom-in" data-aos-delay="200" onclick="openModal(this)">
+      <img src="5.jpeg" alt="Memory 4" class="polaroid-img">
+      <p class="polaroid-caption">
+        "Main character energy together ✨"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 5 -->
+    <div class="polaroid" data-aos="zoom-in" data-aos-delay="250" onclick="openModal(this)">
+      <img src="6.jpeg" alt="Memory 5" class="polaroid-img">
+      <p class="polaroid-caption">
+        "Proof that we are actually chaotic together 😭❤️"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 6 -->
+    <div class="polaroid" data-aos="zoom-in" data-aos-delay="300" onclick="openModal(this)">
+      <img src="7.jpeg" alt="Memory 6" class="polaroid-img">
+      <p class="polaroid-caption">
+        "Couple goals? Maybe. Weird? Definitely."
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 7 -->
+    <div class="polaroid large" data-aos="zoom-in" data-aos-delay="350" onclick="openModal(this)">
+      <img src="Screenshot 2026-05-28 023851.png" alt="Memory 7" class="polaroid-img">
+      <p class="polaroid-caption">
+        "My favorite notification is you"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+    <!-- PHOTO 8 -->
+    <div class="polaroid" data-aos="zoom-in" data-aos-delay="400" onclick="openModal(this)">
+      <img src="Screenshot 2026-05-28 025108.png" alt="Memory 8" class="polaroid-img">
+      <p class="polaroid-caption">
+        "Adventure unlocked ✨"
+      </p>
+      <div class="polaroid-sparkles"></div>
+    </div>
+
+  </div>
+
+</section>
+  <!-- ============================================================
+       SECTION 4 — LOVE LETTER
+  ============================================================ -->
+  <section id="letter" class="section letter-section">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">From My Heart</span>
+      <h2 class="section-title">A Letter <em>For You</em></h2>
+    </div>
+    <div class="envelope-wrapper" data-aos="zoom-in">
+      <div class="envelope" id="envelope" onclick="openEnvelope()">
+        <div class="envelope-flap"></div>
+        <div class="envelope-body">
+          <div class="envelope-seal">💌</div>
+          <p class="envelope-hint">Click to open ✨</p>
+        </div>
+      </div>
+      <div class="letter-paper" id="letterPaper">
+        <div class="letter-content">
+          <p class="letter-date">Six months ago today,</p>
+          <p id="letterText"></p>
+          <div class="letter-signature">
+            <p>With all my love,</p>
+            <p class="signature-name">Forever Yours 💕</p>
+          </div>
+        </div>
+        <div class="letter-sparkles" id="letterSparkles"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — REASONS I LOVE YOU
+  ============================================================ -->
+  <section id="reasons" class="section reasons-section">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Always & Forever</span>
+      <h2 class="section-title">Reasons I <em>Love You</em></h2>
+    </div>
+    <div class="reasons-grid">
+
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="reason-icon">🌙</div>
+        <p>The way you laugh at your own jokes before finishing them</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="reason-icon">☕</div>
+        <p>How you remember the little things that matter to me</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="reason-icon">✨</div>
+        <p>Your ability to make any ordinary moment feel special</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="reason-icon">🌸</div>
+        <p>The way your eyes light up when you're excited about something</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="320">
+        <div class="reason-icon">💫</div>
+        <p>How you make the world feel less overwhelming just by being in it</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="reason-icon">🎵</div>
+        <p>Every playlist, every song you share — it's all so perfectly you</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="480">
+        <div class="reason-icon">🤝</div>
+        <p>The way you show up, every single time, without being asked</p>
+      </div>
+      <div class="reason-card" data-aos="fade-up" data-aos-delay="560">
+        <div class="reason-icon">❤️</div>
+        <p>Simply because you are you, and that has always been enough</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — INTERACTIVE SURPRISE (Love Meter + Quiz)
+  ============================================================ -->
+  <section id="surprise" class="section surprise-section">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Just For Fun</span>
+      <h2 class="section-title">Our Little <em>Surprise</em> 🎉</h2>
+    </div>
+    <div class="surprise-container">
+
+      <!-- LOVE METER -->
+      <div class="love-meter-wrapper" data-aos="zoom-in">
+        <h3 class="surprise-subtitle">Love Meter 💕</h3>
+        <div class="love-meter-visual">
+          <div class="meter-heart-icon">💗</div>
+          <div class="meter-bar-outer">
+            <div class="meter-bar-fill" id="meterFill"></div>
+          </div>
+          <div class="meter-percentage" id="meterPercent">0%</div>
+        </div>
+        <button class="surprise-btn" onclick="runLoveMeter()">Calculate Our Love ✨</button>
+        <p class="meter-result" id="meterResult"></p>
+      </div>
+
+      <!-- SCRATCH CARD -->
+      <div class="scratch-wrapper" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="surprise-subtitle">Scratch to Reveal 🎁</h3>
+        <div class="scratch-card-container">
+          <canvas id="scratchCanvas" width="280" height="160"></canvas>
+          <div class="scratch-reveal" id="scratchReveal">
+            <span>💌</span>
+            <p>"You are my favorite adventure and my safest place."</p>
+          </div>
+        </div>
+        <p class="scratch-hint">Scratch the card above!</p>
+        <button class="surprise-btn secondary" onclick="resetScratch()">Reset Card 🔄</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — COUNTDOWN & FUTURE
+  ============================================================ -->
+  <section id="countdown" class="section countdown-section">
+    <div class="stars-bg" id="starsBg"></div>
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Looking Ahead</span>
+      <h2 class="section-title">Our <em>Future</em> Together</h2>
+    </div>
+
+    <div class="countdown-wrapper" data-aos="zoom-in">
+      <h3 class="countdown-label">Together for</h3>
+      <div class="countdown-boxes">
+        <div class="count-box"><span id="cDays">180</span><label>Days</label></div>
+        <div class="count-sep">:</div>
+        <div class="count-box"><span id="cHours">00</span><label>Hours</label></div>
+        <div class="count-sep">:</div>
+        <div class="count-box"><span id="cMins">00</span><label>Mins</label></div>
+        <div class="count-sep">:</div>
+        <div class="count-box"><span id="cSecs">00</span><label>Secs</label></div>
+      </div>
+      <p class="countdown-sub">and every second is worth it 💕</p>
+    </div>
+
+    <div class="future-goals" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="goals-title">Things We'll Do Together 🌟</h3>
+      <ul class="goals-list">
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="100"><span class="goal-check">🌍</span> Travel somewhere new together</li>
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="200"><span class="goal-check">🎬</span> Have a movie marathon night</li>
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="300"><span class="goal-check">🍕</span> Cook a meal together (and probably make a mess)</li>
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="400"><span class="goal-check">🌄</span> Watch a sunrise together</li>
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="500"><span class="goal-check">💌</span> Write each other a letter to open in a year</li>
+        <li class="goal-item" data-aos="fade-right" data-aos-delay="600"><span class="goal-check">🎊</span> Celebrate many more anniversaries like this one</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — FINAL ENDING
+  ============================================================ -->
+  <section id="ending" class="section ending-section">
+    <div class="ending-stars" id="endingStars"></div>
+    <div class="ending-content" data-aos="fade-up">
+      <div class="ending-heart" id="endingHeart">❤️</div>
+      <h2 class="ending-title">Thank you for the best<br><em>6 months</em> of my life</h2>
+      <p class="ending-sub">Here's to every moment that made us, us.</p>
+      <p class="ending-quote">"In a universe full of noise,<br>you are my favorite sound."</p>
+      <button class="confetti-btn" onclick="launchConfetti()">
+        🎉 Celebrate Us!
+      </button>
+      <div class="ending-footer">Made with ❤️ just for you · Our Little Universe ✨</div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PHOTO MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-img-wrap" id="modalImgWrap"></div>
+      <p class="modal-caption" id="modalCaption"></p>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
