@@ -191,14 +191,19 @@ feel a little softer and a lot more beautiful.
 
 Six months doesn't sound like a long time, but with you, every single day has felt like 
 a little lifetime of its own. We've collected so many moments — the silly ones, the quiet ones, 
-the ones where we laughed until it hurt, and the ones where just being next to you was enough.
+the ones and the ones where just being next to you was enough.
 
-You've made ordinary days feel like magic, and I find myself grateful every morning that 
-I get to share this strange, wonderful life with you.
+I just wanted you to know that I'm very proud of you for everything 
+that you've been through. I know that life hasn't been easy at all to you. I mean, 
+the stories that you tell me all the time, I can't even imagine.
 
-I love every version of you — the sleepy one, the excited one, the one who overthinks everything, 
-and the one who makes me feel like the luckiest person in the room just by choosing me.
+Just, you're so strong.You are so strong. I am so grateful to have you in my life, and 
+I am so grateful that you exist.I think I just want to tell you that you're going to be okay.
+I know that it may not seem like it right now and I know that the world has been nothing but scary,
+but I got you. You're going to be okay,baby. 
 
+And anytime it doesn't feel like it will, you come back to this and you read to it and get that reassurance. 
+But also let me know when things are okay for you, okay? I care about you. I want the updates.
 Here's to 6 months, and to every beautiful moment still ahead of us.`;
 
 let letterTyped = false;
